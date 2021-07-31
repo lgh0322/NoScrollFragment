@@ -27,22 +27,26 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
 
+        val inflater=navController.navInflater
+        val graph=inflater.inflate(R.navigation.mobile_navigation)
+        graph.startDestination=R.id.navigation_dashboard
 
+        navController.setGraph(graph,intent.extras)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(
+//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+//            )
+//        )
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+//        navView.setupWithNavController(navController)
 
 
-        MainScope().launch {
-            delay(3000)
-            navController.navigate(R.id.navigation_dashboard)
-        }
+//        MainScope().launch {
+//            delay(3000)
+//            navController.navigate(R.id.navigation_dashboard)
+//        }
 
     }
 }
